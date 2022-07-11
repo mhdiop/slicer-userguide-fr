@@ -9,6 +9,13 @@ author = 'Graziella'
 release = '0.1'
 version = '0.1.0'
 
+# Customized confs
+
+source_suffix = ['.md']
+
+master_doc = 'index'
+
+
 # -- General configuration
 
 extensions = [
