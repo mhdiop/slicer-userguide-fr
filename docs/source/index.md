@@ -1,203 +1,205 @@
-# Getting Started
 
-Welcome to the 3D Slicer community. This page contains information that you need to get started with 3D Slicer, including how to install and use basic features and where to find more information.
+# Démarrer avec *3D Slicer*
 
-## System requirements
+Bienvenue dans la communauté 3D Slicer. Cette page contient les informations dont vous avez besoin pour démarrer avec 3D Slicer, notamment comment l'installer et utiliser ses fonctionnalités de base et où trouver plus d'informations.
 
-3D Slicer runs on any Windows, Mac, or Linux computer that was released in the last 5 years. Older computers may work (depending mainly on graphics capabilities).
+## Configurations requises
 
-Slicer can also run on virtual machines and docker containers. For example, [3D Slicer + Jupyter notebook in a web browser](https://mybinder.org/v2/gh/Slicer/SlicerNotebooks/master?filepath=SlicerWeb.ipynb) is available for free via Binder service (no installation needed, the application can run in any web browser).
+3D Slicer fonctionne sur tout ordinateur Windows, Mac ou Linux sorti au cours des cinq dernières années. Les ordinateurs plus anciens peuvent également le supporter (dépend principalement des capacités graphiques).
 
-### Operating system versions
+Slicer peut également fonctionner sur des machines virtuelles et des conteneurs docker. Par exemple, [*3D Slicer + Jupyter Notebook* dans un navigateur web](https://mybinder.org/v2/gh/Slicer/SlicerNotebooks/master?filepath=SlicerWeb.ipynb) est disponible gratuitement via le service Binder (aucune installation nécessaire, l'application peut fonctionner dans n'importe quel navigateur web).
 
-- Windows: Windows 10 or 11, with all recommended updates installed. Windows 10 Version 1903 (May 2019 Update) version or later is required for support of international characters (UTF-8) in filenames and text. Microsoft does not support Windows 8.1 and Windows 7 anymore and Slicer is not tested on these legacy operating system versions, but may still work.
-- macOS: macOS High Sierra (10.13) or later (both Intel and ARM based systems). Latest public release is recommended.
-- Linux: Ubuntu 18.04 or later<br>CentOS 7 or later. Latest LTS (Long-term-support) version is recommended.
+### Versions des systèmes d'exploitation
 
-### Recommended hardware configuration
-- Memory: more than 4GB (8 or more is recommended). As a general rule, have 10x more memory than the amount of data that you load.
-- Display: a minimum resolution of 1024 by 768 (1280 by 1024 or better is recommended).
-- Graphics: Dedicated graphics hardware (discrete GPU) memory is recommended for fast volume rendering.
-GPU: Graphics must support minimum OpenGL 3.2. Integrated graphics card is sufficient for basic visualization. Discrete graphics card (such as NVidia GPU) is recommended for interactive 3D volume rendering and fast rendering of complex scenes. GPU texture memory (VRAM) should be larger than your largest dataset (e.g., working with 2GB data, get VRAM > 4GB) and check that your images fit in maximum texture dimensions of your GPU hardware. Except rendering, most calculations are performed on CPU, therefore having a faster GPU will generally not impact the overall speed of the application.
-- Some computations in 3D Slicer are multi-threaded and will benefit from multi core, multi CPU configurations.
-- Interface device: a three button mouse with scroll wheel is recommended. Pen, multi-touchscreen, touchpad, and graphic tablet are supported. All OpenVR-compatible virtual reality headsets are supported for virtual reality display.
-- Internet connection to access extensions, Python packages, online documentation, sample data sets, and tutorials.
+- Windows : Windows 10 ou 11, avec toutes les mises à jour recommandées installées. La version 1903 de Windows 10 (mise à jour de mai 2019) ou une version ultérieure est requise pour la prise en charge des caractères internationaux (UTF-8) dans les noms de fichiers et le texte. Microsoft ne prend plus en charge Windows 8.1 et Windows 7. Slicer n'est donc pas testé sur ces anciennes versions du système d'exploitation, mais pourrait malgré tout y fonctionner.
+- MacOS : MacOS High Sierra (10.13) ou version ultérieure (systèmes basés sur Intel et ARM). La dernière version publique est recommandée.
+- Linux : Ubuntu 18.04 ou version ultérieure<br>CentOS 7 ou version ultérieure. La dernière version LTS (Long-term-support) est recommandée.
+
+### Configuration matérielle recommandée
+
+- Mémoire : plus de 4 Go (8 ou plus sont recommandés). En règle générale, ayez 10 fois plus de mémoire que la quantité de données que vous chargez.
+- Affichage : une résolution minimale de 1024 par 768 (1280 par 1024 ou plus est recommandé).
+- Graphique : Une mémoire dédiée au matériel graphique (GPU discret) est recommandée pour un rendu rapide des volumes.
+GPU : Le matériel graphique doit supporter au minimum OpenGL 3.2. Une carte graphique intégrée est suffisante pour une visualisation de base. Une carte graphique discrète (telle qu'un GPU NVidia) est recommandée pour le rendu interactif de volumes 3D et le rendu rapide de scènes complexes. La mémoire de texture du GPU (VRAM) doit être supérieure à votre plus grand jeu de données (par exemple, si vous travaillez avec des données de 2 Go, utilisez une VRAM > 4 Go) et vérifiez que vos images tiennent dans les dimensions maximales de texture de votre matériel GPU. À l'exception du rendu, la plupart des calculs sont effectués par le CPU. Par conséquent, un GPU plus rapide n'aura généralement pas d'impact sur la vitesse globale de l'application.
+- Certains calculs de 3D Slicer sont multithreadés et bénéficieront de configurations multi-cœurs et multi-processeurs.
+- Dispositif d'interface : une souris à trois boutons avec molette de défilement est recommandée. Le stylet, l'écran tactile multipoint, le pavé tactile et la tablette graphique sont pris en charge. Tous les casques de réalité virtuelle compatibles avec OpenVR sont pris en charge pour l'affichage de la réalité virtuelle.
+- Connexion Internet pour accéder aux extensions, aux paquets Python, à la documentation en ligne, aux jeux de données d'exemple et aux tutoriels.
 
 ## Installing 3D Slicer
 
-To download Slicer, click [here](https://download.slicer.org/).
+Pour télécharger Slicer, cliquez [ici](https://download.slicer.org/).
 
 ![](https://github.com/Slicer/Slicer/releases/download/docs-resources/getting_started_download.png)
 
 **Notes:**
-- The "Preview Release" of 3D Slicer is updated daily (process starts at 11pm ET and takes few hours to complete) and represents the latest development including new features and fixes.
-- The "Stable Release" is usually updated a few times a year and is more rigorously tested.
-- Slicer is generally simple to install on all platforms. It is possible to install multiple versions of the application on the same user account and they will not interfere with each other. If you run into mysterious problems with your installation you can try deleting the [application settings files](settings.md#settings-file-location).
-- Only 64-bit Slicer installers are available to download. Developers can attempt to build 32-bit versions on their own if they need to run Slicer on a 32-bit operating system. That said, this should be carefully considered as many clinical research tasks, such as processing of large CT or MR volumetric datasets, require more memory than can be accommodated with a 32-bit program.
+- La "Preview Release" de 3D Slicer est mise à jour quotidiennement (le processus commence à 23 heures heure de l'Est et prend quelques heures) et représente le dernier développement incluant les nouvelles fonctionnalités et les corrections.
+- La "Stable Release" est habituellement mise à jour plusieurs fois par an et fait l'objet de tests plus rigoureux.
+- Slicer est généralement simple à installer sur toutes les plateformes. Il est possible d'installer plusieurs versions de l'application sur le même compte utilisateur et elles n'interféreront pas entre elles. Si vous rencontrez des problèmes mystérieux lors de votre installation, vous pouvez essayer de supprimer les [fichiers de paramètres de l'application](settings.md#settings-file-location).
+- Seuls les installateurs 64 bits de Slicer sont disponibles au téléchargement. Les développeurs peuvent essayer de construire eux-mêmes des versions 32 bits s'ils ont besoin d'exécuter Slicer sur un système d'exploitation 32 bits. Cela dit, il convient d'y réfléchir attentivement, car de nombreuses tâches de recherche clinique, telles que le traitement de grands ensembles de données volumétriques de tomodensitométrie ou d'IRM, nécessitent plus de mémoire qu'un programme 32 bits.
 
-Once downloaded, follow the instructions below to complete installation:
+Une fois téléchargé, suivez les instructions ci-dessous pour terminer l'installation :
 
 ### Windows
 
-- Run the installer.
-  - Current limitation: Installation path must only contain English ([ASCII printable](https://en.wikipedia.org/wiki/ASCII#Printable_characters)) characters because otherwise some Python packages may not load correctly (see this [issue](https://github.com/Slicer/Slicer/issues/5383) for more details).
-- Run Slicer from the Windows start menu.
-- Use "Apps & features" in Windows settings to remove the application.
+- Exécutez le programme d'installation.
+  - Limitation actuelle : Le chemin d'installation ne doit contenir que des caractères anglais ([ASCII imprimable](https://en.wikipedia.org/wiki/ASCII#Printable_characters)), sinon certains paquets Python risquent de ne pas se charger correctement (voir cette [question](https://github.com/Slicer/Slicer/issues/5383) pour plus de détails).
+- Lancez Slicer à partir du menu de démarrage de Windows.
+- Utilisez "Programmes et fonctionnalités" dans les paramètres de Windows pour supprimer l'application.
 
 ### Mac
 
-- Open the install package (.dmg file).
-- Drag the Slicer application (Slicer.app) to your Applications folder (or other location of your choice).
-  - This step is necessary because content of a .dmg file is opened as a read-only volume, and you cannot install extensions or Python packages into a read-only volume.
-- Delete the Slicer.app folder to uninstall.
+- Ouvrez le paquet d'installation (fichier .dmg).
+- Faites glisser l'application Slicer (Slicer.app) vers votre dossier Applications (ou tout autre emplacement de votre choix).
+  - Cette étape est nécessaire car le contenu d'un fichier .dmg est ouvert en tant que volume en lecture seule, et vous ne pouvez pas installer d'extensions ou de paquets Python dans un volume en lecture seule.
+- Supprimez le dossier Slicer.app pour le désinstaller.
 
-Note for installing a Preview Release: Currently, preview release packages are not signed. Therefore, when the application is started the first time the following message is displayed: "Slicer... can't be opened because it is from an unidentified developer". To resolve this error, locate the application in Finder and right-click (two-finger click) and click `Open`. When it says `This app can’t be opened` go ahead and hit cancel. Right click again and say `Open` (yes, you need to repeat the same as you did before - the outcome will be different than the first time). Click the `Open` (or `Open anyway`) button to start the application. See more explanation and alternative techniques [here](https://support.apple.com/en-my/guide/mac-help/mh40616/mac).
+Remarque concernant l'installation d'une Preview Release : Actuellement, les paquets de la Preview Release ne sont pas signés. Par conséquent, lorsque l'application est lancée la première fois, le message suivant s'affiche : "Slicer... ne peut pas être ouvert car il provient d'un développeur non identifié". Pour résoudre cette erreur, localisez l'application dans le Finder, faites un clic droit (deux doigts) et cliquez sur "Ouvrir". Lorsque le message "Cette application ne peut pas être ouverte" apparaît, cliquez sur "Annuler". Faites à nouveau un clic droit et dites "Ouvrir" (oui, vous devez répéter la même chose que la fois précédente - le résultat sera différent de celui de la première fois). Cliquez sur le bouton "Ouvrir" (ou "Ouvrir quand même") pour lancer l'application. Vous trouverez plus d'explications et des techniques alternatives [ici](https://support.apple.com/en-my/guide/mac-help/mh40616/mac).
 
-#### Installing using Homebrew
+#### Installer avec Homebrew
 
-Slicer can be installed with a single terminal command using the [Homebrew](https://brew.sh/) package manager:
+Slicer peut être installé à l'aide d'une seule commande dans un terminal en utilisant le gestionnaire de paquets [Homebrew](https://brew.sh/) :
 
 ```shell
-brew install --cask slicer  # to install
-brew upgrade slicer         # to upgrade
-brew uninstall slicer       # to uninstall
+brew install --cask slicer  # pour installer
+brew upgrade slicer         # pour mettre à jour
+brew uninstall slicer       # pour désinstaller
 ```
 
-This procedure avoids the typical google-download-mount-drag process to install macOS applications.
+Cette démarche permet d'éviter le processus habituel consistant à rechercher sur Google, puis de télécharger, de monter et de glisser pour installer les applications macOS.
 
-Preview releases can be installed using [`homebrew-cask-versions`](https://github.com/Homebrew/homebrew-cask-versions):
+Les "Preview releases" peuvent être installées en utilisant [`homebrew-cask-versions`](https://github.com/Homebrew/homebrew-cask-versions) :
 
 ```shell
-brew tap homebrew/cask-versions     # needs to be run once
-brew install --cask slicer-preview  # to install
-brew upgrade slicer-preview         # to upgrade
-brew uninstall slicer-preview       # to uninstall
+brew tap homebrew/cask-versions     # doit être exécuté une fois
+brew install --cask slicer-preview  # pour installer
+brew upgrade slicer-preview         # pour mettre à jour
+brew uninstall slicer-preview       # pour désinstaller
 ```
 
 ### Linux
 
-- Open the tar.gz archive and copy directory to the location of your choice.
-- Installation of additional packages may be necessary depending on the Linux distribution and version, as described in subsections below.
-- Run the `Slicer` executable.
-- Remove the directory to uninstall.
+- Ouvrez l'archive tar.gz et copiez le répertoire à l'emplacement de votre choix.
+- L'installation de paquets supplémentaires peut être nécessaire selon la distribution et la version de Linux, comme décrit dans les sous-sections ci-dessous.
+- Lancez l'exécutable `Slicer`.
+- Supprimez le répertoire pour désinstaller.
 
 **Notes:**
-- Slicer is expected to work on the vast majority of desktop and server Linux distributions. The system is required to provide at least GLIBC 2.17 and GLIBCCC 3.4.19. For more details, read [here](https://www.python.org/dev/peps/pep-0599/#the-manylinux2014-policy).
-- The Extension Manager uses QtWebengine to display the list of extensions. If your linux kernel does not fulfill [sandboxing requirements](https://doc.qt.io/Qt-5/qtwebengine-platform-notes.html#sandboxing-support) then you can turn off sandboxing by this command: `export QTWEBENGINE_DISABLE_SANDBOX=1`
-- Getting command-line arguments and process output containing non-ASCII characters requires the system to use a UTF-8 locale. If the system uses a different locale then the `export LANG="C.UTF-8"` command may be used before launching the application to switch to an acceptable locale.
+- Slicer est censé fonctionner sur la grande majorité des distributions Linux de bureau et de serveur. Le système doit fournir au moins GLIBC 2.17 et GLIBCCC 3.4.19. Pour plus de détails, lisez [ici](https://www.python.org/dev/peps/pep-0599/#the-manylinux2014-policy).
+- Le gestionnaire d'extensions utilise QtWebengine pour afficher la liste des extensions. Si votre noyau linux ne répond pas aux [exigences de sandboxing](https://doc.qt.io/Qt-5/qtwebengine-platform-notes.html#sandboxing-support) alors vous pouvez désactiver le sandboxing par cette commande : `export QTWEBENGINE_DISABLE_SANDBOX=1`
+- Pour obtenir des arguments de ligne de commande et des résultats de processus contenant des caractères non ASCII, le système doit utiliser une variable locale UTF-8. Si le système utilise une autre  variable locale, la commande `export LANG="C.UTF-8"` peut être utilisée avant de lancer l'application pour passer à une variable locale acceptable.
 
 #### Debian / Ubuntu
-The following may be needed on fresh debian or ubuntu:
+Les éléments suivants peuvent être nécessaires sur un debian ou un ubuntu récent :
 
     sudo apt-get install libpulse-dev libnss3 libglu1-mesa
     sudo apt-get install --reinstall libxcb-xinerama0
 
-:::{note} Warning
-:class: warning
+:::{note} Avertissement
+:class : warning
 
-Debian 10.12 users may encounter an error when launching Slicer:
+Les utilisateurs de Debian 10.12 peuvent rencontrer une erreur lors du lancement de Slicer :
 
-    Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
+   Warning: Ignoring XDG_SESSION_TYPE=wayland on Gnome. Use QT_QPA_PLATFORM=wayland to run on Wayland anyway.
     qt.qpa.plugin: Could not load the Qt platform plugin "xcb" in "" even though it was found.
     This application failed to start because no Qt platform plugin could be initialized. Reinstalling the application may fix this problem.
 
-    Available platform plugins are: xcb.
+   Available platform plugins are: xcb.
 
-[The solution](https://forum.qt.io/topic/93247/qt-qpa-plugin-could-not-load-the-qt-platform-plugin-xcb-in-even-though-it-was-found/81) is to create symlink:
+[La solution](https://forum.qt.io/topic/93247/qt-qpa-plugin-could-not-load-the-qt-platform-plugin-xcb-in-even-though-it-was-found/81) consiste à créer un lien symbolique :
 
     sudo ln -s /usr/lib/x86_64-linux-gnu/libxcb-util.so /usr/lib/x86_64-linux-gnu/libxcb-util.so.1
 
 :::
 
 #### ArchLinux
-ArchLinux runs the `strip` utility by default; this needs to be disabled in order to run Slicer binaries.  For more information see [this thread on the Slicer Forum](https://discourse.slicer.org/t/could-not-load-dicom-data/14211/5).
+ArchLinux exécute l'utilitaire `strip` par défaut ; il doit être désactivé afin d'exécuter les binaires Slicer.  Pour plus d'informations, voir [cette discussion sur le forum Slicer](https://discourse.slicer.org/t/could-not-load-dicom-data/14211/5).
 
 #### Fedora
-Install the dependencies:
+Installez les dépendances :
 
     sudo dnf install mesa-libGLU libnsl
 
-The included libcrypto.so.1.1 in the Slicer installation is incompatible with the system libraries used by Fedora 35. The fix, until it is updated, is to move/remove the included libcrypto files:
+La libcrypto.so.1.1 incluse dans l'installation de Slicer est incompatible avec les bibliothèques système utilisées par Fedora 35. La solution, jusqu'à ce qu'elle soit mise à jour, est de déplacer/supprimer les fichiers libcrypto inclus :
 
     $SLICER_ROOT/lib/Slicer-4.xx/libcrypto.*
 
-## Using Slicer
+## Utiliser Slicer
 
-3D Slicer offers lots of features and gives users great flexibility in how to use them. As a result, new users may be overwhelmed with the number of options and have difficulty figuring out how to perform even simple operations. This is normal and many users successfully crossed this difficult stage by investing some time into learning how to use this software.
+3D Slicer propose de nombreuses fonctionnalités et offre aux utilisateurs une grande flexibilité dans la manière de les utiliser. Par conséquent, les nouveaux utilisateurs peuvent être submergés par le nombre d'options et avoir des difficultés à comprendre comment effectuer même des opérations simples. C'est normal et de nombreux utilisateurs ont réussi à franchir cette étape difficile en investissant un peu de temps pour apprendre à utiliser ce logiciel.
 
-How to learn Slicer?
+Comment apprendre Slicer ?
 
-### Quick start
+### Démarrage rapide
 
-You may try to figure out how the application works by loading data sets and explore what you can do.
+Vous pouvez essayer de comprendre le fonctionnement de l'application en chargeant des jeux de données et explorer ce que vous pouvez faire.
 
-#### Load data
+#### Charger des données
 
-Open 3D Slicer and using the Welcome panel either load your own data or download sample data to explore. Sample data is often useful for trying the features of 3D Slicer if you don't have data of your own.
+Ouvrez 3D Slicer et, à l'aide du panneau de bienvenue, chargez vos propres données ou téléchargez des échantillons de données à explorer. Les échantillons de données sont souvent utiles pour essayer les fonctionnalités de 3D Slicer si vous ne disposez pas de vos propres données.
 
 ![](https://github.com/Slicer/Slicer/releases/download/docs-resources/getting_started_load_data.png)
 
 ![](https://github.com/Slicer/Slicer/releases/download/docs-resources/getting_started_sample_data.png)
 
-#### View data
+#### Visualiser des données
 
-Data module's Subject hierarchy tab shows all data sets in the scene. Click the "eye" icon to show/hide an item in all views.
+L'onglet "Hiérarchie des sujets" du module "Data" affiche tous les jeux de données de la scène. Cliquez sur l'icône "œil" pour afficher/masquer un élément dans toutes les vues.
 
-You can customize views (show orientation marker, ruler, change orientation, transparency) by clicking on the push pin in the top left corner of viewer. In the slice viewers, the horizontal bar can be used to scroll through slices or select a slice.
+Vous pouvez personnaliser les vues (afficher le marqueur d'orientation, la règle, changer l'orientation, la transparence) en cliquant sur la punaise dans le coin supérieur gauche du visualiseur. Dans les visionneuses de coupes, la barre horizontale peut être utilisée pour faire défiler les coupes ou sélectionner une coupe.
 
 ![](https://github.com/Slicer/Slicer/releases/download/docs-resources/getting_started_view_controllers.png)
 
-#### Process data
+#### Traiter des données
 
-3D Slicer is built on a modular architecture. Choose a module to process or analyze your data. Most important modules are the following (complete list is available in [Modules](modules/index.md) section):
+3D Slicer est construit sur une architecture modulaire. Choisissez un module pour traiter ou analyser vos données. Les modules les plus importants sont les suivants (la liste complète est disponible dans la section [Modules](modules/index.md)) :
 
-- *Welcome*: The default module when 3D Slicer is started. The panel features options for loading data and customizing 3D Slicer. Below those options are drop-down boxes that contain essential information for using 3D Slicer.
-- [Data](modules/data.md): acts as a central data-organizing hub. Lists all data currently in the scene and allows basic operations such as search, rename, delete and move.
-- [DICOM](modules/dicom.md): Import and export DICOM objects, such as images, segmentations, structure sets, radiation therapy objects, etc.
-- [Volumes](modules/volumes.md): Used for changing the appearance of various volume types.
-- [Volume Rendering](modules/volumerendering.md): Provides interactive visualization of 3D image data.
-- [Segmentations](modules/segmentations.md): Edit display properties and import/export segmentations.
-- [Segment Editor](modules/segmenteditor.md): Segment 3D volumes using various manual, semi-automatic, and automatic tools.
-- [Markups](modules/markups.md): Allows the creation and editing of markups associated with a scene.
-- [Models](modules/models.md): Loads and adjusts display parameters of models. Allows the user to change the appearance of and organize 3D surface models.
-- [Transforms](modules/transforms.md): This module is used for creating and editing transformation matrices. You can establish these relations by moving nodes from the Transformable list to the Transformed list or by dragging the nodes under the Transformation nodes in the Data module.
+- *Bienvenue* : Le module par défaut lorsque 3D Slicer est lancé. Il présente des options pour le chargement des données et la personnalisation de 3D Slicer. Sous ces options, des boîtes déroulantes contiennent des informations essentielles à l'utilisation de 3D Slicer.
+- [Data](modules/data.md) : agit comme un centre d'organisation des données. Il répertorie toutes les données actuellement présentes dans la scène et permet des opérations de base telles que rechercher, renommer, supprimer et déplacer.
+- [DICOM](modules/dicom.md) : Importez et exportez des objets DICOM, tels que des images, des segmentations, des ensembles de structures, des objets de radiothérapie, etc.
+- [Volumes](modules/volumes.md) : Utilisé pour changer l'apparence de divers types de volumes.
+- [Volume Rendering](modules/volumerendering.md) : Fournit une visualisation interactive des données d'imagerie 3D.
+- [Segmentations](modules/segmentations.md) : Modifier les propriétés d'affichage et importer/exporter des segmentations.
+- [Segment Editor](modules/segmenteditor.md) : Segmentez des volumes 3D en utilisant divers outils manuels, semi-automatiques et automatiques.
+- [Markups](modules/markups.md) : Permet la création et l'édition des markups (annotations) associés à une scène.
+- [ Models ](modules/models.md) : Charge et ajuste les paramètres d'affichage des modèles. Permet à l'utilisateur de modifier l'apparence des modèles de surface 3D et de les organiser.
+- [Transforms](modules/transforms.md) : Ce module est utilisé pour créer et éditer des matrices de transformation. Vous pouvez établir ces relations en déplaçant les nœuds de la liste Transformable vers la liste Transformé ou en faisant glisser les nœuds sous les nœuds Transformation du module Data.
 
-#### Save data
+#### Sauvegarder des données
 
-Data sets loaded into the application can be saved using Save data dialog or exported to DICOM format using DICOM module. Detailes are described in [Data loading and saving section](data_loading_and_saving.md).
+Les jeux de données chargés dans l'application peuvent être enregistrés à l'aide de la boîte de dialogue Enregistrer les données, ou exportés au format DICOM à l'aide du module DICOM. Les détails sont décrits dans la section [Chargement et sauvegarde des données](data_loading_and_saving.md).
 
-#### Extensions
+#### Les extensions
 
-3D Slicer supports plug-ins that are called extensions. An extension could be seen as a delivery package bundling together one or more Slicer modules. After installing an extension, the associated modules will be presented to the user as built-in ones. Extensions can be downloaded from the extensions manager to selectively install features that are useful for the end-user.
+3D Slicer prend en charge des plug-ins appelés extensions. Une extension peut être considérée comme un paquet de distribution regroupant un ou plusieurs modules Slicer. Après avoir installé une extension, les modules associés seront présentés à l'utilisateur comme des modules intégrés. Les extensions peuvent être téléchargées à partir du gestionnaire d'extensions pour installer de manière sélective les fonctionnalités utiles à l'utilisateur final.
 
 ![](https://github.com/Slicer/Slicer/releases/download/docs-resources/getting_started_module_list.png)
 
 ![](https://github.com/Slicer/Slicer/releases/download/docs-resources/getting_started_extensions_manager.png)
 
-For details about downloading extensions, see [Extensions Manager documentation](extensions_manager.md).
-Click [here](https://www.slicer.org/wiki/Documentation/Nightly/ModuleExtensionListing/Extensions_by_category) for a full list of extensions. The links on the page will provide documentation for each extension.
+Pour plus de détails sur le téléchargement des extensions, voir la [documentation du gestionnaire d'extensions](extensions_manager.md).
+Cliquez [ici](https://www.slicer.org/wiki/Documentation/Nightly/ModuleExtensionListing/Extensions_by_category) pour obtenir une liste complète des extensions. Les liens sur la page fourniront la documentation pour chaque extension.
 
-Slicer is extensible. If you are interested in customizing or adding functionality to Slicer, click [here](https://www.slicer.org/wiki/Documentation/Nightly/Training#Tutorials_for_software_developers).
+Slicer est extensible. Si vous souhaitez personnaliser ou ajouter des fonctionnalités à Slicer, cliquez [ici](https://www.slicer.org/wiki/Documentation/Nightly/Training#Tutorials_for_software_developers).
 
-### Tutorials
+### Tutoriels
 
-You learn both basic concepts and highly specialized workflows from the numerous available step-by-step and video tutorials.
+Vous apprenez aussi bien les concepts de base que les flux de travail hautement spécialisés grâce aux nombreux tutoriels vidéo et étape par étape disponibles.
 
-Try the [Welcome Tutorial](https://www.slicer.org/wiki/Documentation/Nightly/Training#Slicer_Welcome_Tutorial) and the [Data Loading and 3D Visualization Tutorial](https://www.slicer.org/wiki/Documentation/Nightly/Training#Slicer4_Data_Loading_and_3D_Visualization) to learn the basics.
+Essayez le [Tutoriel de bienvenue](https://www.slicer.org/wiki/Documentation/Nightly/Training#Slicer_Welcome_Tutorial) et le [Tutoriel sur le chargement des données et la visualisation 3D](https://www.slicer.org/wiki/Documentation/Nightly/Training#Slicer4_Data_Loading_and_3D_Visualization) pour apprendre les bases.
 
-For more tutorials, visit the [Tutorial page](https://www.slicer.org/wiki/Documentation/Nightly/Training).
+Pour plus de tutoriels, visitez la [page des tutoriels](https://www.slicer.org/wiki/Documentation/Nightly/Training).
 
-### User manual
+### Manuel utilisateur
 
-Browse the [User Interface](user_interface.md) section to find quick overview of the application user interface or [Modules](modules/index.md) section for detailed description of each module.
+Parcourez la section [Interface utilisateur](user_interface.md) pour obtenir un aperçu rapide de l'interface utilisateur de l'application ou la section [Modules](modules/index.md) pour obtenir une description détaillée de chaque module.
 
-### Ask for help
+### Obtenir de l'aide
 
-3D Slicer has been around for many years and many questions have been asked and answered about it already. If you have any questions, then you may start with a web search, for example Google `slicer load jpg` to find out how you can import a stack of jpg images.
+3D Slicer existe depuis de nombreuses années et de nombreuses questions ont déjà été posées et répondues à son sujet. Si vous avez des questions, vous pouvez commencer par une recherche sur le web, par exemple en tapant sur Google `slicer charger jpg` pour savoir comment importer une pile d'images jpg.
 
-The application has a large and very friendly and helpful user community. We have people who will happy to help with simple questions, such as how to do a specific task in Slicer, and we have a large number of engineering and medical experts who can give you advice with how to solve complex problems.
+L'application dispose d'une grande communauté d'utilisateurs très sympathiques et serviables. Nous avons des personnes qui seront heureuses de vous aider pour des questions simples, comme la façon d'effectuer une tâche spécifique dans Slicer, et nous avons un grand nombre d'experts en ingénierie et en médecine qui peuvent vous donner des conseils pour résoudre des problèmes complexes.
 
-**If you have any questions, go to the [Slicer forum](https://discourse.slicer.org) and ask us!**
+**Si vous avez des questions, rendez-vous sur le [forum Slicer](https://discourse.slicer.org) et posez-les nous!**
 
 ## Glossary
 
